@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import './pages/home.dart';
+import 'pages/homePage.dart';
 import './pages/loginPage.dart';
-import './pages/personalData.dart';
+import 'pages/personalDataPage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -15,11 +15,12 @@ class MyApp extends StatelessWidget {
     var materialApp = MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'ApiPlaceHolderApp',
-      home: const LoginPage(),
+      initialRoute: '/',
       routes: {
+        '/': (context) => const LoginPage(),
         '/home': (context) => const HomePage(),
-        '/login': (context) => const LoginPage(),
-        '/personalData' : (context) => const PresonalData(),
+        '/personalData' : (context) => PersonalDataPage(),
+        '/login' : (context) => const LoginPage(),
       },
     ); 
     return materialApp;

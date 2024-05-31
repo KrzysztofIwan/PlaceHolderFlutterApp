@@ -2,10 +2,11 @@ import 'package:flutter/material.dart';
 import '../models/comment.dart';
 import 'package:http/http.dart' as http;
 import 'dart:convert';
-import '../pages/menuBar.dart' as appbar;
+import '../bar/optionBar.dart' as appbar;
+import '../bar/navigationBar.dart' as nvbar;
 
 class HomePage extends StatefulWidget {
-  const HomePage({super.key});
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   State<HomePage> createState() => _HomePageState();
@@ -27,8 +28,8 @@ class _HomePageState extends State<HomePage> {
 
   void refresh() {
     getData().then((value) => setState(() {
-      comment = value;
-    }));
+          comment = value;
+        }));
   }
 
   @override
@@ -40,8 +41,8 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: const appbar.MenuBar(),
-            body: comment == null
+      appBar: const appbar.OptionBar(),      
+      body: comment == null
           ? const Center(child: CircularProgressIndicator())
           : ListView(
               padding: const EdgeInsets.all(16.0),
@@ -57,6 +58,10 @@ class _HomePageState extends State<HomePage> {
                 Text("Body: ${comment!.body}"),
               ],
             ),
+      bottomNavigationBar: nvbar.NavigationBar(
+        currentIndex: 0,        
+        //onItemTapped: (index) { },
+      ),
     );
   }
 }

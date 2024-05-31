@@ -94,7 +94,7 @@ class _LoginPageState extends State<LoginPage> {
                     }
                   }
                   else{
-                    return 'Nie podano wszsytkich danych';
+                    return 'Nie podano wszystkich danych';
                   }
                 },
               ),
