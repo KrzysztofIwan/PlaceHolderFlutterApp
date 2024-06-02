@@ -37,7 +37,7 @@ class _PersonalDataPageState extends State<PersonalDataPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(204, 255, 200, 1),
+      backgroundColor: const Color.fromRGBO(204, 255, 200, 1),
       appBar: const appbar.OptionBar(),
       body: Center(child: 
         FutureBuilder<User>(

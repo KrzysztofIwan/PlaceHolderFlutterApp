@@ -31,7 +31,6 @@ class _LoginPageState extends State<LoginPage> {
   void logowanie() {
     if (_formKey.currentState!.validate()) {
       User user = logowanieNa as User;
-      // Ustawienie ID użytkownika w modelu UserModel
       final userModel = Provider.of<UserProvider>(context, listen: false);
       userModel.setUserId(user.id);
       Navigator.pushReplacementNamed(context, '/home');
@@ -40,7 +39,7 @@ class _LoginPageState extends State<LoginPage> {
 
   void refresh() {
     getData().then((value) => setState(() {
-      users.addAll(value); // <- dodanie całej listy do listy
+      users.addAll(value);
     }));
   }
 
@@ -53,7 +52,7 @@ class _LoginPageState extends State<LoginPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(204, 255, 200, 1),
+      backgroundColor: const Color.fromRGBO(204, 255, 200, 1),
       appBar: AppBar(
         backgroundColor: Colors.green,
         title: const Text('Strona Logowania'),

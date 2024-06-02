@@ -3,7 +3,7 @@ import '../bar/optionBar.dart' as appbar;
 import '../bar/navigationBar.dart' as nvbar;
 
 class HomePage extends StatefulWidget {
-  const HomePage({Key? key}) : super(key: key);
+  const HomePage({super.key});
 
   @override
   State<HomePage> createState() => _HomePageState();

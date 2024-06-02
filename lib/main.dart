@@ -28,8 +28,8 @@ class MyApp extends StatelessWidget {
       routes: {
         '/': (context) => const LoginPage(),
         '/home': (context) => const HomePage(),
-        '/comments' : (context) => CommentsPage(),
-        '/randomPhoto': (context) => RandomPhotosPage(),
+        '/comments' : (context) => const CommentsPage(),
+        '/randomPhoto': (context) => const RandomPhotosPage(),
         '/personalData' : (context) => const PersonalDataPage(),
         '/login' : (context) => const LoginPage(),
       },
