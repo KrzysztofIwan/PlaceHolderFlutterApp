@@ -41,6 +41,7 @@ class _HomePageState extends State<HomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color.fromRGBO(204, 255, 200, 1),
       appBar: const appbar.OptionBar(),      
       body: comment == null
           ? const Center(child: CircularProgressIndicator())

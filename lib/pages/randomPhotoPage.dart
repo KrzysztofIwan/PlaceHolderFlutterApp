@@ -6,6 +6,7 @@ class RandomPhotosPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return const Scaffold(
+      backgroundColor: Color.fromRGBO(204, 255, 200, 1),
       appBar: appbar.OptionBar(),
       body:  Center(
         child: Text('RandomPhotosPage'),

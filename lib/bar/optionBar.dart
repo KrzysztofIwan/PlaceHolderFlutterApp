@@ -13,6 +13,7 @@ class OptionBar extends StatelessWidget implements PreferredSizeWidget {
   @override
   Widget build(BuildContext context) {
     return AppBar(
+      backgroundColor: Colors.green,
       title: const Text('ApiPlaceHolderAPP'),
       actions: <Widget>[
         PopupMenuButton<String>(
@@ -26,7 +27,7 @@ class OptionBar extends StatelessWidget implements PreferredSizeWidget {
               const PopupMenuItem<String>(
                 value: 'logout',
                 child: Text('Wyloguj'),
-              ),              
+              ),
             ];
           },
         ),
