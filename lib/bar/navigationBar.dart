@@ -16,19 +16,19 @@ class NavigationBar extends StatelessWidget {
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
-            label: 'Home',
+            label: 'Strona główna',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.comment),
-            label: 'Comments',
+            label: 'Komentarze',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.photo_album),
-            label: 'Random Photo',
+            label: 'Logowe Zdjecia',
           ),
           BottomNavigationBarItem(
             icon: Icon(Icons.person),
-            label: 'Personal Data',
+            label: 'Twoje Dane',
           ),
         ],
         currentIndex: currentIndex,

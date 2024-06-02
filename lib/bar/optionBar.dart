@@ -17,6 +17,7 @@ class OptionBar extends StatelessWidget implements PreferredSizeWidget {
       title: const Text('ApiPlaceHolderAPP'),
       actions: <Widget>[
         PopupMenuButton<String>(
+          color: const Color.fromARGB(255, 218, 255, 219),
           onSelected: (value) {
             if (value == 'logout') {
               _logout(context);

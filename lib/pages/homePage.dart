@@ -1,7 +1,4 @@
 import 'package:flutter/material.dart';
-import '../models/comment.dart';
-import 'package:http/http.dart' as http;
-import 'dart:convert';
 import '../bar/optionBar.dart' as appbar;
 import '../bar/navigationBar.dart' as nvbar;
 
@@ -13,55 +10,54 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
-  Comment? comment;
-
-  Future<Comment> getData() async {
-    Uri uri = Uri.parse('https://jsonplaceholder.typicode.com/comments?id=1');
-    var response = await http.get(uri);
-    if (response.statusCode == 200) {
-      List<dynamic> jsonResponse = json.decode(response.body);
-      return Comment.fromJson(jsonResponse[0]);
-    } else {
-      throw Exception("Unable to connect to API");
-    }
-  }
-
-  void refresh() {
-    getData().then((value) => setState(() {
-          comment = value;
-        }));
-  }
-
-  @override
-  void initState() {
-    super.initState();
-    refresh();
-  }
-
-  @override
+    @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromRGBO(204, 255, 200, 1),
+      backgroundColor: const Color.fromRGBO(204, 255, 200, 1),
       appBar: const appbar.OptionBar(),      
-      body: comment == null
-          ? const Center(child: CircularProgressIndicator())
-          : ListView(
-              padding: const EdgeInsets.all(16.0),
-              children: [
-                Text("Post ID: ${comment!.postId}"),
-                const SizedBox(height: 8.0),
-                Text("ID: ${comment!.id}"),
-                const SizedBox(height: 8.0),
-                Text("Name: ${comment!.name}"),
-                const SizedBox(height: 8.0),
-                Text("Email: ${comment!.email}"),
-                const SizedBox(height: 8.0),
-                Text("Body: ${comment!.body}"),
-              ],
-            ),
-      bottomNavigationBar: nvbar.NavigationBar(
+      body: Center(
+        child: Container(
+          width: 320,
+          height: 200,
+          decoration: BoxDecoration(
+            color: const Color.fromARGB(255, 218, 255, 219),
+            borderRadius: BorderRadius.circular(40),
+            boxShadow: [
+                    BoxShadow(
+                      color: Colors.black.withOpacity(0.07),
+                      offset: const Offset(0,10),
+                      blurRadius: 40,
+                      spreadRadius: 0
+                    )
+                  ],
+          ),
+          child: const Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+             Text(
+              "Aplikacje przygotował:",
+              style: TextStyle(fontSize: 30, fontStyle: FontStyle.italic),
+             ),
+             SizedBox(height: 20,),
+             Text(
+                "Krzysztof Iwański",
+                style: TextStyle(
+                  fontSize: 30,
+                ),
+              ),
+              Text(
+                "13666",
+                style: TextStyle(
+                  fontSize: 30,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+      bottomNavigationBar: const nvbar.NavigationBar(
         currentIndex: 0,        
-        //onItemTapped: (index) { },
       ),
     );
   }
